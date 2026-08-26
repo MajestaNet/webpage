@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import NotesSection from '../components/NotesSection.astro';
+import Footer from '../components/Footer.astro';
+import { getPublishedArticles } from '../lib/articles';
+
+const articles = await getPublishedArticles();
+---
+
+<Base>
+  <div class="stage">
+    <Hero />
+    <main id="content">
+      <Projects />
+      <NotesSection articles={articles} homeHref="#top">
+        <Footer />
+      </NotesSection>
+    </main>
+  </div>
+</Base>

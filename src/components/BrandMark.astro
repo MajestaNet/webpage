@@ -1,0 +1,14 @@
+---
+import { site } from '../lib/brand';
+
+type Props = {
+  href?: string;
+  class?: string;
+};
+
+const { href = '/', class: className } = Astro.props;
+---
+
+<a class:list={['brand-mark', className]} href={href}>
+  <img src="/brand/logo-navy.svg" width="220" height="31" alt={site.name} />
+</a>

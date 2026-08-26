@@ -1,0 +1,43 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import Footer from '../../components/Footer.astro';
+import { formatArticleDate, getPublishedArticles, type ArticleEntry } from '../../lib/articles';
+
+export async function getStaticPaths() {
+  const articles = await getPublishedArticles();
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+type Props = {
+  article: ArticleEntry;
+};
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<Base
+  title={article.data.title}
+  description={article.data.summary}
+  canonical={`/notes/${article.id}`}
+>
+  <main id="content" class="article-page">
+    <BrandMark class="panel-mark" />
+    <header class="article-header">
+      <time datetime={article.data.date.toISOString()}>
+        {formatArticleDate(article.data.date)}
+      </time>
+      <h1>{article.data.title}</h1>
+      <p>{article.data.summary}</p>
+    </header>
+    <article class="article-body prose">
+      <Content />
+    </article>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,120 @@
+---
+import BrandMark from './BrandMark.astro';
+---
+
+<section class="panel" id="projects">
+  <BrandMark class="panel-mark" href="#top" />
+  <div class="panel-inner">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">Open source</h2>
+    <div class="project-grid" data-projects>
+      <p class="empty-state" data-projects-status>Looking for public repositories…</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import {
+    GITHUB_ORG_URL,
+    MAX_REPOS,
+    REPOS_ENDPOINT,
+    cacheRead,
+    cacheWrite,
+    selectTopRepos,
+    type GithubRepo,
+  } from '../lib/github';
+
+  const root = document.querySelector<HTMLElement>('[data-projects]');
+  if (root) {
+    renderProjects(root);
+  }
+
+  async function renderProjects(mount: HTMLElement) {
+    try {
+      const repos = await loadRepos();
+      const projects = selectTopRepos(repos, MAX_REPOS);
+
+      if (projects.length === 0) {
+        mount.replaceChildren(
+          emptyState('No public repositories yet. They will appear here as they are published.'),
+        );
+        return;
+      }
+
+      mount.replaceChildren(...projects.map(projectCard));
+    } catch {
+      mount.replaceChildren(
+        emptyState('The GitHub catalogue could not be loaded. See the organisation on ', {
+          href: GITHUB_ORG_URL,
+          label: 'GitHub',
+        }),
+      );
+    }
+  }
+
+  async function loadRepos(): Promise<GithubRepo[]> {
+    const cached = cacheRead();
+    if (cached) return cached;
+
+    const response = await fetch(REPOS_ENDPOINT, {
+      headers: { Accept: 'application/vnd.github+json' },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!response.ok) {
+      throw new Error(`GitHub responded ${response.status}`);
+    }
+    const payload: unknown = await response.json();
+    if (!Array.isArray(payload)) {
+      throw new Error('GitHub returned an unexpected payload');
+    }
+    const repos = payload as GithubRepo[];
+    cacheWrite(repos);
+    return repos;
+  }
+
+  function projectCard(project: ReturnType<typeof selectTopRepos>[number]): HTMLAnchorElement {
+    const card = document.createElement('a');
+    card.className = 'project-card';
+    card.href = project.url;
+    card.rel = 'noopener noreferrer';
+    card.target = '_blank';
+
+    const title = document.createElement('h3');
+    title.textContent = project.name;
+
+    const summary = document.createElement('p');
+    summary.textContent = project.description;
+
+    const meta = document.createElement('div');
+    meta.className = 'project-meta';
+    if (project.language) {
+      const language = document.createElement('span');
+      language.textContent = project.language;
+      meta.append(language);
+    }
+    const stars = document.createElement('span');
+    stars.textContent = `${project.stars} ★`;
+    meta.append(stars);
+
+    card.append(title, summary, meta);
+    return card;
+  }
+
+  function emptyState(
+    message: string,
+    link?: { href: string; label: string },
+  ): HTMLParagraphElement {
+    const status = document.createElement('p');
+    status.className = 'empty-state';
+    status.append(message);
+    if (link) {
+      const anchor = document.createElement('a');
+      anchor.href = link.href;
+      anchor.rel = 'noopener noreferrer';
+      anchor.target = '_blank';
+      anchor.textContent = link.label;
+      status.append(anchor, '.');
+    }
+    return status;
+  }
+</script>

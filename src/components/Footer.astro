@@ -1,0 +1,25 @@
+---
+import { site } from '../lib/brand';
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a class="footer-legal" href="/terms">Terms &amp; Privacy</a>
+    <a class="footer-globe" href="/" aria-label={site.name}>
+      <img src="/brand/symbol-white.svg" width="48" height="48" alt="" />
+    </a>
+    <div class="footer-icons">
+      <a href={`mailto:${site.email}`} aria-label={`Email ${site.email}`}>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3.25" y="5.75" width="17.5" height="12.5" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect>
+          <path d="M4 7.2 12 13.1 20 7.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+      <a href={site.githubUrl} rel="noopener noreferrer" target="_blank" aria-label="Majesta.Net on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.463 2 11.97c0 4.4 2.865 8.13 6.839 9.452.5.092.682-.216.682-.48 0-.237-.009-.866-.014-1.7-2.782.602-3.369-1.337-3.369-1.337-.455-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.829.091-.645.35-1.085.636-1.334-2.22-.252-4.555-1.107-4.555-4.928 0-1.088.39-1.979 1.029-2.676-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.697 1.028 1.588 1.028 2.676 0 3.83-2.339 4.673-4.566 4.92.359.309.678.918.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.577.688.48C19.137 20.096 22 16.368 22 11.97 22 6.463 17.523 2 12 2Z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>

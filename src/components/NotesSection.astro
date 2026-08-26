@@ -1,0 +1,37 @@
+---
+import BrandMark from './BrandMark.astro';
+import { formatArticleDate, type ArticleEntry } from '../lib/articles';
+
+type Props = {
+  articles: ArticleEntry[];
+  homeHref?: string;
+};
+
+const { articles, homeHref } = Astro.props;
+---
+
+<section class="panel" id="notes">
+  {homeHref && <BrandMark class="panel-mark" href={homeHref} />}
+  <div class="panel-inner">
+    <h2 class="section-title">Notes</h2>
+
+    {
+      articles.length === 0 ? (
+        <p class="empty-state">No notes published yet.</p>
+      ) : (
+        <div class="article-list">
+          {articles.map((article) => (
+            <a class="article-card" href={`/notes/${article.id}`}>
+              <time datetime={article.data.date.toISOString()}>
+                {formatArticleDate(article.data.date)}
+              </time>
+              <h3>{article.data.title}</h3>
+              <p>{article.data.summary}</p>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+  <slot />
+</section>

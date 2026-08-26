@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../lib/brand';
+---
+
+<Base title="Not found" description={`This page is not on ${site.name}.`} noindex>
+  <main id="content" class="not-found">
+    <img src="/brand/logo-gold.svg" width="360" height="51" alt={site.name} />
+    <p>This page is not here.</p>
+    <a href="/">Home</a>
+  </main>
+</Base>

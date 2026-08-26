@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import NotesSection from '../../components/NotesSection.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import Footer from '../../components/Footer.astro';
+import { getPublishedArticles } from '../../lib/articles';
+import { site } from '../../lib/brand';
+
+const articles = await getPublishedArticles();
+---
+
+<Base title="Notes" description={`Notes from ${site.name}.`} canonical="/notes">
+  <main id="content" class="article-page">
+    <BrandMark class="panel-mark" />
+    <NotesSection articles={articles} />
+  </main>
+  <Footer />
+</Base>
