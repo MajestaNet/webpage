@@ -26,7 +26,7 @@ draft: false
 Article body in Markdown.
 ```
 
-3. Open a pull request against `master`. GitHub Actions runs tests, `astro check`, and a production build. Netlify builds a deploy preview of the same commit.
+3. Open a pull request against `main`. GitHub Actions runs tests, `astro check`, and a production build. Netlify builds a deploy preview of the same commit.
 4. Merge the pull request. Netlify rebuilds production. The note is listed under Notes and served at `/notes/<slug>`.
 
 `draft: true` keeps the file in git without shipping it. Omit `draft`, or set it to `false`, to publish.
@@ -35,7 +35,7 @@ Images belong in this repository at `public/media/` and are referenced as `/medi
 
 The worked example in the tree is [`content/articles/a-public-notebook.md`](content/articles/a-public-notebook.md). A short checklist also lives in [`content/articles/README.md`](content/articles/README.md).
 
-Pushing straight to `master` also deploys, but a pull request is the intended path: you read the preview before it is live.
+Pushing straight to `main` also deploys, but a pull request is the intended path: you read the preview before it is live.
 
 ## Local development
 
@@ -70,8 +70,8 @@ Connect this GitHub repository to Netlify if it is not connected yet. After that
 
 | Event | Result |
 | --- | --- |
-| Pull request against `master` | Deploy preview, plus GitHub Actions CI |
-| Merge or push to `master` | Production deploy at [majesta.net](https://majesta.net) |
+| Pull request against `main` | Deploy preview, plus GitHub Actions CI |
+| Merge or push to `main` | Production deploy at [majesta.net](https://majesta.net) |
 
 No secrets are required. The GitHub catalogue uses the public API from the visitor’s browser. Do not put tokens in the frontend.
 

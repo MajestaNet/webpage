@@ -15,7 +15,7 @@ export const site = {
   url: 'https://majesta.net',
   email: 'hello@majesta.net',
   githubUrl: 'https://github.com/MajestaNet',
-  githubWebsiteUrl: 'https://github.com/MajestaNet/website',
+  githubWebsiteUrl: 'https://github.com/MajestaNet/webpage',
   legalName: 'Majesta Net',
   abn: '57 618 927 075',
 } as const;

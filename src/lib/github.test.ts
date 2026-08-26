@@ -29,7 +29,8 @@ describe('selectTopRepos', () => {
 
   it('drops forks, archives, private repos and the website itself', () => {
     const selected = selectTopRepos([
-      repo({ name: 'website', stargazers_count: 99 }),
+      repo({ name: 'webpage', stargazers_count: 99 }),
+      repo({ name: 'website', stargazers_count: 80 }),
       repo({ name: '.github' }),
       repo({ name: 'forked', fork: true, stargazers_count: 12 }),
       repo({ name: 'old', archived: true, stargazers_count: 12 }),

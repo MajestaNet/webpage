@@ -4,7 +4,7 @@ import BrandMark from '../components/BrandMark.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/brand';
 
-const updated = new Date('2026-08-25T00:00:00Z');
+const updated = new Date('2026-08-26T00:00:00Z');
 const updatedLabel = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',
   month: 'short',
@@ -35,7 +35,7 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
     <article class="article-body prose">
       <p>
         This page applies to the public website at <a href={site.url}>{site.url.replace('https://', '')}</a>
-        (the <strong>site</strong>), including the project catalogue and the notes. It is issued by
+        {' '}(the <strong>site</strong>), including the project catalogue and the notes. It is issued by
         {site.legalName} (ABN {site.abn}) (<strong>we</strong>, <strong>us</strong>, <strong>our</strong>),
         an Australian sole trader business, trading as {site.name}.
       </p>
@@ -45,7 +45,7 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
       <h3>What this site is</h3>
       <p>
         {site.name} publishes open source software. This site is a brand landing, a live catalogue
-        of public repositories under the
+        of public repositories under the{' '}
         <a href={site.githubUrl} rel="noopener noreferrer" target="_blank">MajestaNet GitHub organisation</a>,
         and a notebook of notes. It is not a hosted software service, a marketplace, or a place where
         we sell goods.
@@ -61,8 +61,8 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
         This website — including its source, notes, article media, and brand artwork — is proprietary.
         Viewing the published site or the public GitHub tree does not grant you a licence to copy,
         modify, or reuse that material, except as copyright law already allows. See the website
-        repository
-        <a href={`${site.githubWebsiteUrl}/blob/master/LICENSE`}>LICENSE</a>.
+        repository{' '}
+        <a href={`${site.githubWebsiteUrl}/blob/main/LICENSE`}>LICENSE</a>.
       </p>
       <p>
         Open source projects listed on the site are published in separate repositories. Each
@@ -101,9 +101,9 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
       <h3>Acceptable use</h3>
       <p>
         Use the site only for ordinary browsing and reading. Do not attempt to disrupt it, overload
-        it, or use it for anything unlawful. If you find a security issue, email
-        <a href={`mailto:${site.email}`}>{site.email}</a> as described in our
-        <a href={`${site.githubWebsiteUrl}/blob/master/SECURITY.md`}>security policy</a>.
+        it, or use it for anything unlawful. If you find a security issue, email{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a> as described in our{' '}
+        <a href={`${site.githubWebsiteUrl}/blob/main/SECURITY.md`}>security policy</a>.
       </p>
 
       <h3>Hosting and GitHub</h3>
@@ -159,14 +159,14 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
 
       <h3>Who we are</h3>
       <p>
-        {site.legalName} (ABN {site.abn}) operates this site. For privacy questions, email
+        {site.legalName} (ABN {site.abn}) operates this site. For privacy questions, email{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a>.
       </p>
 
       <h3>What we collect — and what we do not</h3>
       <p>
         We may only collect and retain your email address if you enquire directly via this site and
-        its listed contact details. Today that means writing to
+        its listed contact details. Today that means writing to{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a>. If you send a message, we will also have
         whatever you choose to put in it (for example your name, or a GitHub handle).
       </p>
@@ -200,12 +200,12 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
       <h3>Hosting, GitHub, and email</h3>
       <p>
         Netlify hosts the site. Their infrastructure may process technical request data (such as IP
-        address, browser type, and timestamps) in order to serve the pages and keep them secure. See
+        address, browser type, and timestamps) in order to serve the pages and keep them secure. See{' '}
         <a href="https://www.netlify.com/privacy/">Netlify’s privacy policy</a>.
       </p>
       <p>
         The home page requests GitHub’s public API from your browser. That request is made by your
-        browser to GitHub, not through our servers, and is subject to
+        browser to GitHub, not through our servers, and is subject to{' '}
         <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.
       </p>
       <p>
@@ -221,17 +221,6 @@ const updatedLabel = new Intl.DateTimeFormat('en-GB', {
         <li>if the law requires us to; or</li>
         <li>if you ask us to.</li>
       </ul>
-
-      <h3>Access, correction, deletion, and complaints</h3>
-      <p>
-        You can ask us what personal information we hold about you, ask us to correct it, or ask us
-        to delete your email once we no longer need it, by writing to
-        <a href={`mailto:${site.email}`}>{site.email}</a>.
-      </p>
-      <p>
-        If you have a privacy complaint, contact us first. You may also contact the
-        <a href="https://www.oaic.gov.au/" rel="noopener noreferrer" target="_blank">Office of the Australian Information Commissioner</a>.
-      </p>
 
       <h3>Changes</h3>
       <p>
