@@ -2,10 +2,10 @@ export const GITHUB_ORG = 'MajestaNet';
 export const GITHUB_ORG_URL = `https://github.com/${GITHUB_ORG}`;
 export const MAX_REPOS = 4;
 export const REPOS_ENDPOINT = `https://api.github.com/orgs/${GITHUB_ORG}/repos?type=public&sort=updated&per_page=100`;
-export const CACHE_KEY = 'majesta.repos.v1';
+export const CACHE_KEY = 'majesta.repos.v2';
 export const CACHE_TTL_MS = 10 * 60 * 1000;
 
-const EXCLUDED_NAMES = new Set(['website', '.github']);
+const EXCLUDED_NAMES = new Set(['webpage', 'website', '.github']);
 
 export type GithubRepo = {
   name: string;

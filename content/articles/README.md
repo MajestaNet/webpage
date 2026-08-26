@@ -17,7 +17,7 @@ draft: true
 Body in Markdown.
 ```
 
-Then open a pull request against `master`. Netlify builds a preview; merging publishes to [majesta.net](https://majesta.net). Set `draft: false` (or omit `draft`) when it should ship.
+Then open a pull request against `main`. Netlify builds a preview; merging publishes to [majesta.net](https://majesta.net). Set `draft: false` (or omit `draft`) when it should ship.
 
 Images go in `public/media/` and are referenced as `/media/filename.jpg`.
 

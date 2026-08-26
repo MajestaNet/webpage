@@ -64,7 +64,7 @@ Fonts are fetched at build time (Astro Fonts API) and served from this origin, s
 
 ## Projects
 
-Client code calls `https://api.github.com/orgs/MajestaNet/repos`, caches the payload for ten minutes, then keeps repositories that are public, not forks, not archived, and not `website` or `.github`. Sort: stars, then last push. Cap: four.
+Client code calls `https://api.github.com/orgs/MajestaNet/repos`, caches the payload for ten minutes, then keeps repositories that are public, not forks, not archived, and not `webpage`, `website`, or `.github`. Sort: stars, then last push. Cap: four.
 
 The organisation currently has no public software repositories. The section already has an empty state. When repos are published they appear on the next page load, with no site change. This website repo stays excluded so the catalogue is software, not the notebook.
 
@@ -84,10 +84,10 @@ draft: boolean   # optional, default false
 Intended publishing path:
 
 1. Add `content/articles/my-slug.md` (see that folder’s `README.md` and the example `a-public-notebook.md`).
-2. Open a pull request against `master`. GitHub Actions and a Netlify deploy preview run on the PR.
-3. Merge. Netlify runs `npm test && npm run check && npm run build` on `master` and replaces the listing plus `/notes/my-slug`.
+2. Open a pull request against `main`. GitHub Actions and a Netlify deploy preview run on the PR.
+3. Merge. Netlify runs `npm test && npm run check && npm run build` on `main` and replaces the listing plus `/notes/my-slug`.
 
-That is the editorial workflow: nobody runs a local production build, and nobody touches Astro or CSS. Netlify rebuilds static HTML. Direct pushes to `master` also deploy; a pull request is preferred so the preview can be read first.
+That is the editorial workflow: nobody runs a local production build, and nobody touches Astro or CSS. Netlify rebuilds static HTML. Direct pushes to `main` also deploy; a pull request is preferred so the preview can be read first.
 
 `draft: true` keeps a file in git without shipping it.
 
@@ -99,7 +99,7 @@ Article pages are prerendered on purpose. Runtime-only Markdown would avoid a Ne
 
 `netlify.toml` already names the build command, publish directory, Node version, and security headers. When the repository is connected to Netlify:
 
-- Netlify builds on push to `master` (production) and on pull requests (previews).
+- Netlify builds on push to `main` (production) and on pull requests (previews).
 - The same Markdown workflow works for anyone with write access.
 - `/orgs/MajestaNet/repos` starts returning software as soon as those repos are public.
 - The website repo itself is excluded from the projects grid.
