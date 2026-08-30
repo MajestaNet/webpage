@@ -64,9 +64,9 @@ Fonts are fetched at build time (Astro Fonts API) and served from this origin, s
 
 ## Projects
 
-Client code calls `https://api.github.com/orgs/MajestaNet/repos`, caches the payload for ten minutes, then keeps repositories that are public, not forks, not archived, and not `webpage`, `website`, or `.github`. Sort: stars, then last push. Cap: four.
+Client code calls `https://api.github.com/orgs/MajestaNet/repos`, caches the payload for ten minutes, then keeps public, non-fork, non-archived repositories, including this website repo. Sort: last push. Cap: four.
 
-The organisation currently has no public software repositories. The section already has an empty state. When repos are published they appear on the next page load, with no site change. This website repo stays excluded so the catalogue is software, not the notebook.
+When further repos are published they appear on the next page load, with no site change. The section still has an empty state if the org has none.
 
 Unauthenticated GitHub allows 60 requests per IP per hour; the cache keeps a quiet site inside that budget. If the API is unavailable, the empty state points at GitHub.
 
@@ -102,7 +102,7 @@ Article pages are prerendered on purpose. Runtime-only Markdown would avoid a Ne
 - Netlify builds on push to `main` (production) and on pull requests (previews).
 - The same Markdown workflow works for anyone with write access.
 - `/orgs/MajestaNet/repos` starts returning software as soon as those repos are public.
-- The website repo itself is excluded from the projects grid.
+- Public org repos, including this website repo, appear in the projects grid, ordered by last push.
 
 No secrets are required. The GitHub catalogue uses the public API. Do not put tokens in the frontend.
 

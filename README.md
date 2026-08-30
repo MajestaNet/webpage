@@ -6,7 +6,7 @@ The landing page is the gold lockup and slogan on reference navy. One scroll is 
 
 Software will live in other public repositories under that organisation. They can use their own licenses. This website repository is proprietary (all rights reserved); a public GitHub tree is not an open-source grant. See [LICENSE](LICENSE).
 
-The organisation does not need public software yet for this site to ship. Project cards appear on the next page load once those repositories exist. This repo and `.github` are excluded from that grid on purpose.
+Project cards are loaded live from the organisation’s public, non-fork, non-archived repositories, including this website repo, ordered by last push.
 
 ## Publish a note
 
