@@ -27,30 +27,35 @@ describe('selectTopRepos', () => {
     expect(selectTopRepos([])).toEqual([]);
   });
 
-  it('drops forks, archives, private repos and the website itself', () => {
+  it('keeps every public non-fork, including the website repo, and drops forks, archives and private repos', () => {
     const selected = selectTopRepos([
-      repo({ name: 'webpage', stargazers_count: 99 }),
-      repo({ name: 'website', stargazers_count: 80 }),
-      repo({ name: '.github' }),
-      repo({ name: 'forked', fork: true, stargazers_count: 12 }),
-      repo({ name: 'old', archived: true, stargazers_count: 12 }),
-      repo({ name: 'secret', private: true, stargazers_count: 12 }),
-      repo({ name: 'keeper', description: 'Keep this one' }),
+      repo({ name: 'webpage', pushed_at: '2026-08-01T00:00:00Z' }),
+      repo({ name: 'website', pushed_at: '2026-07-01T00:00:00Z' }),
+      repo({ name: '.github', pushed_at: '2026-06-01T00:00:00Z' }),
+      repo({ name: 'forked', fork: true, pushed_at: '2026-09-01T00:00:00Z' }),
+      repo({ name: 'old', archived: true, pushed_at: '2026-09-01T00:00:00Z' }),
+      repo({ name: 'secret', private: true, pushed_at: '2026-09-01T00:00:00Z' }),
+      repo({ name: 'keeper', description: 'Keep this one', pushed_at: '2026-05-01T00:00:00Z' }),
     ]);
 
-    expect(selected.map((item) => item.name)).toEqual(['keeper']);
+    expect(selected.map((item) => item.name)).toEqual([
+      'webpage',
+      'website',
+      '.github',
+      'keeper',
+    ]);
   });
 
-  it('prefers stars, then recency, and caps at four', () => {
+  it('orders by last push and caps at four', () => {
     const selected = selectTopRepos([
-      repo({ name: 'a', stargazers_count: 1, pushed_at: '2026-02-01T00:00:00Z' }),
+      repo({ name: 'a', stargazers_count: 99, pushed_at: '2026-02-01T00:00:00Z' }),
       repo({ name: 'b', stargazers_count: 5, pushed_at: '2026-01-01T00:00:00Z' }),
-      repo({ name: 'c', stargazers_count: 5, pushed_at: '2026-03-01T00:00:00Z' }),
+      repo({ name: 'c', stargazers_count: 0, pushed_at: '2026-03-01T00:00:00Z' }),
       repo({ name: 'd', stargazers_count: 2, pushed_at: '2026-04-01T00:00:00Z' }),
       repo({ name: 'e', stargazers_count: 0, pushed_at: '2026-05-01T00:00:00Z' }),
     ]);
 
-    expect(selected.map((item) => item.name)).toEqual(['c', 'b', 'd', 'a']);
+    expect(selected.map((item) => item.name)).toEqual(['e', 'd', 'c', 'a']);
   });
 
   it('fills a missing description', () => {

@@ -1,11 +1,9 @@
 export const GITHUB_ORG = 'MajestaNet';
 export const GITHUB_ORG_URL = `https://github.com/${GITHUB_ORG}`;
 export const MAX_REPOS = 4;
-export const REPOS_ENDPOINT = `https://api.github.com/orgs/${GITHUB_ORG}/repos?type=public&sort=updated&per_page=100`;
+export const REPOS_ENDPOINT = `https://api.github.com/orgs/${GITHUB_ORG}/repos?type=public&sort=pushed&per_page=100`;
 export const CACHE_KEY = 'majesta.repos.v2';
 export const CACHE_TTL_MS = 10 * 60 * 1000;
-
-const EXCLUDED_NAMES = new Set(['webpage', 'website', '.github']);
 
 export type GithubRepo = {
   name: string;
@@ -34,19 +32,8 @@ export function selectTopRepos(
   limit = MAX_REPOS,
 ): ProjectCard[] {
   return repos
-    .filter(
-      (repo) =>
-        !repo.fork &&
-        !repo.archived &&
-        !repo.private &&
-        !EXCLUDED_NAMES.has(repo.name),
-    )
-    .sort((a, b) => {
-      if (b.stargazers_count !== a.stargazers_count) {
-        return b.stargazers_count - a.stargazers_count;
-      }
-      return +new Date(b.pushed_at) - +new Date(a.pushed_at);
-    })
+    .filter((repo) => !repo.fork && !repo.archived && !repo.private)
+    .sort((a, b) => +new Date(b.pushed_at) - +new Date(a.pushed_at))
     .slice(0, limit)
     .map((repo) => ({
       name: repo.name,
