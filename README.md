@@ -79,4 +79,4 @@ No secrets are required. The GitHub catalogue uses the public API from the visit
 
 ## Brand assets
 
-Vector lockups from the August 2026 visual identity live in `public/brand/`. Use the SVG files; do not type the wordmark. The gold-on-navy lockup is the primary digital signature. Gold globe PNGs for avatars and other profile use are in `public/brand/symbol/` at 256, 512, and 1024 px (transparent background). In prose the name is Majesta.Net; `MAJESTA.NET` stays on the artwork.
+Vector lockups from the August 2026 visual identity live in `public/brand/`. Use the SVG files; do not type the wordmark. The gold-on-navy lockup is the primary digital signature. Gold globe PNGs for avatars and other profile use are in `public/brand/symbol/` at 256, 512, and 1024 px (transparent background). The tab icon is the navy globe on a transparent field (`public/favicon.svg`, plus `favicon.ico` and PNG fallbacks so browsers that skip SVG still get that mark). The Apple touch icon stays gold on navy for the home-screen tile. In prose the name is Majesta.Net; `MAJESTA.NET` stays on the artwork.
