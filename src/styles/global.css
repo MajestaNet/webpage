@@ -44,7 +44,7 @@ body:has(.stage) {
   min-height: 100svh;
   max-height: 100svh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
 }
 
 .stage main {
@@ -520,6 +520,18 @@ a {
   letter-spacing: 0.22em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@media (max-width: 719px) {
+  .stage .hero,
+  .stage .panel {
+    height: auto;
+    max-height: none;
+  }
+
+  .stage .panel-inner {
+    overflow: visible;
+  }
 }
 
 @media (min-width: 720px) {
