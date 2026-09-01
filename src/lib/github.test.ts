@@ -27,7 +27,11 @@ describe('selectTopRepos', () => {
     expect(selectTopRepos([])).toEqual([]);
   });
 
-  it('keeps every public non-fork, including the website repo, and drops forks, archives and private repos', () => {
+  it('omits the website repo even when it is the only public repository', () => {
+    expect(selectTopRepos([repo({ name: 'webpage' })])).toEqual([]);
+  });
+
+  it('keeps public non-forks except the website repo, and drops forks, archives and private repos', () => {
     const selected = selectTopRepos([
       repo({ name: 'webpage', pushed_at: '2026-08-01T00:00:00Z' }),
       repo({ name: 'website', pushed_at: '2026-07-01T00:00:00Z' }),
@@ -39,7 +43,6 @@ describe('selectTopRepos', () => {
     ]);
 
     expect(selected.map((item) => item.name)).toEqual([
-      'webpage',
       'website',
       '.github',
       'keeper',

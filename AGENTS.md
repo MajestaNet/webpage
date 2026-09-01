@@ -43,7 +43,7 @@ Standard commands are documented in `README.md` and `package.json` scripts:
 Non-obvious notes:
 
 - Notes are Markdown in `content/articles/`, loaded as an Astro content collection (`src/content.config.ts`). `README.md` in that folder is documentation only and is excluded from the collection. `draft: true` hides a file. Adding or editing a note appears at `/notes` and `/notes/<slug>` after a production build (and immediately in `npm run dev` if it is not a draft).
-- Home-page project cards are fetched live from the GitHub API in the browser (`src/lib/github.ts`), so they are not part of the static build and require network access at view time. The build itself needs no GitHub credentials. Public, non-fork, non-archived org repos are shown, including this website repo. Sort is last push (`pushed_at`).
+- Home-page project cards are fetched live from the GitHub API in the browser (`src/lib/github.ts`), so they are not part of the static build and require network access at view time. The build itself needs no GitHub credentials. Public, non-fork, non-archived org repos are shown, excluding this website repo (`webpage`). Sort is last push (`pushed_at`).
 - Fonts are downloaded at build time through Astro’s Fonts API (`astro.config.mjs`) and served from this origin. Do not add a Google Fonts `<link>` in the layout.
 - Keep `typescript` on 6.x. `@astrojs/check` cannot type-check with TypeScript 7 yet.
 - Do not add runtime dependencies unless a page cannot be built without them. Vitest, TypeScript, and `@astrojs/check` stay in `devDependencies`.

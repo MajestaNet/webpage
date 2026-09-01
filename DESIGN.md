@@ -64,7 +64,7 @@ Fonts are fetched at build time (Astro Fonts API) and served from this origin, s
 
 ## Projects
 
-Client code calls `https://api.github.com/orgs/MajestaNet/repos`, caches the payload for ten minutes, then keeps public, non-fork, non-archived repositories, including this website repo. Sort: last push. Cap: four.
+Client code calls `https://api.github.com/orgs/MajestaNet/repos`, caches the payload for ten minutes, then keeps public, non-fork, non-archived repositories, excluding this website repo (`webpage`). Sort: last push. Cap: four.
 
 When further repos are published they appear on the next page load, with no site change. The section still has an empty state if the org has none.
 
@@ -102,7 +102,7 @@ Article pages are prerendered on purpose. Runtime-only Markdown would avoid a Ne
 - Netlify builds on push to `main` (production) and on pull requests (previews).
 - The same Markdown workflow works for anyone with write access.
 - `/orgs/MajestaNet/repos` starts returning software as soon as those repos are public.
-- Public org repos, including this website repo, appear in the projects grid, ordered by last push.
+- Public org repos, excluding this website repo, appear in the projects grid, ordered by last push.
 
 No secrets are required. The GitHub catalogue uses the public API. Do not put tokens in the frontend.
 
