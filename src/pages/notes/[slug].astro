@@ -3,7 +3,9 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import BrandMark from '../../components/BrandMark.astro';
 import Footer from '../../components/Footer.astro';
+import ShareLinks from '../../components/ShareLinks.astro';
 import { formatArticleDate, getPublishedArticles, type ArticleEntry } from '../../lib/articles';
+import { site } from '../../lib/brand';
 
 export async function getStaticPaths() {
   const articles = await getPublishedArticles();
@@ -19,15 +21,21 @@ type Props = {
 
 const { article } = Astro.props;
 const { Content } = await render(article);
+const canonicalPath = `/notes/${article.id}`;
+const shareUrl = new URL(canonicalPath, site.url).toString();
 ---
 
 <Base
   title={article.data.title}
   description={article.data.summary}
-  canonical={`/notes/${article.id}`}
+  canonical={canonicalPath}
+  ogType="article"
 >
   <main id="content" class="article-page">
-    <BrandMark class="panel-mark" />
+    <div class="article-chrome">
+      <BrandMark />
+      <ShareLinks url={shareUrl} title={article.data.title} summary={article.data.summary} />
+    </div>
     <header class="article-header">
       <time datetime={article.data.date.toISOString()}>
         {formatArticleDate(article.data.date)}

@@ -8,6 +8,7 @@ type Props = {
   description?: string;
   canonical?: string;
   noindex?: boolean;
+  ogType?: 'website' | 'article';
 };
 
 const title = Astro.props.title
@@ -17,6 +18,7 @@ const description = Astro.props.description ?? site.description;
 const canonical = new URL(Astro.props.canonical ?? Astro.url.pathname, site.url).toString();
 const ogImage = new URL('/og-image.png', site.url).toString();
 const noindex = Astro.props.noindex ?? false;
+const ogType = Astro.props.ogType ?? 'website';
 ---
 
 <!doctype html>
@@ -34,7 +36,7 @@ const noindex = Astro.props.noindex ?? false;
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
