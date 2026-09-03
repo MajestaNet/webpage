@@ -395,6 +395,88 @@ a {
   background: var(--ivory);
 }
 
+.article-chrome {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem 1rem;
+  padding: 1.35rem var(--page-pad) 0;
+}
+
+.article-chrome .brand-mark {
+  flex: 0 1 14.5rem;
+}
+
+.share-links {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  margin-left: auto;
+  gap: 0.15rem;
+}
+
+.share-links a,
+.share-links button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.share-links a:hover,
+.share-links button:hover {
+  background: color-mix(in srgb, var(--gold) 38%, transparent);
+}
+
+.share-links svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.share-copy {
+  position: relative;
+}
+
+.share-icon-copied,
+.share-copy[data-copied] .share-icon-copy {
+  display: none;
+}
+
+.share-copy[data-copied] .share-icon-copied {
+  display: block;
+}
+
+.share-copy-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.share-copy[data-copied]::after {
+  content: 'Copied';
+  position: absolute;
+  top: calc(100% + 0.2rem);
+  right: 0;
+  color: var(--slate);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .article-header,
 .article-body {
   width: min(100%, 46rem);
@@ -406,6 +488,10 @@ a {
 .article-header {
   padding-top: 5.5rem;
   padding-bottom: 2rem;
+}
+
+.article-page:has(.article-chrome) .article-header {
+  padding-top: 2.4rem;
 }
 
 .article-header time {
