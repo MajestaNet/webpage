@@ -552,13 +552,67 @@ a {
   letter-spacing: 0.04em;
 }
 
-.prose ul {
+.prose h2 {
+  font-size: 1.35rem;
+}
+
+.prose h3 {
+  font-size: 1.12rem;
+}
+
+.prose ul,
+.prose ol {
   margin: 0;
   padding-left: 1.25rem;
 }
 
 .prose li + li {
   margin-top: 0.45rem;
+}
+
+.prose strong {
+  font-weight: 500;
+}
+
+.prose p:has(> strong:only-child) {
+  margin-top: 1.6rem;
+  padding: 0.15rem 0 0.15rem 1.15rem;
+  border-left: 2px solid var(--navy);
+}
+
+.prose blockquote {
+  margin: 1.65rem 0 0;
+  padding: 0.15rem 0 0.15rem 1.15rem;
+  border-left: 2px solid var(--gold);
+  color: var(--navy);
+}
+
+.prose blockquote > * + * {
+  margin-top: 0.85rem;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.5rem 0.85rem 0.5rem 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.prose th {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.prose tr:last-child td {
+  border-bottom: 0;
 }
 
 .prose a {
