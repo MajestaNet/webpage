@@ -12,13 +12,13 @@ Project cards are loaded live from the organisation’s public, non-fork, non-ar
 
 This is the whole editorial workflow. You add a Markdown file. You do not edit Astro, HTML, or CSS.
 
-1. Add `content/articles/<slug>.md`. The filename is the URL: `content/articles/a-public-notebook.md` becomes `https://majesta.net/notes/a-public-notebook`. Use a stable kebab-case slug; renaming later changes the public URL.
+1. Add `content/articles/<slug>.md`. The filename is the URL: `content/articles/conscious-cognitive-learning.md` becomes `https://majesta.net/notes/conscious-cognitive-learning`. Use a stable kebab-case slug; renaming later changes the public URL.
 2. Start with YAML front matter. `title`, `date`, and `summary` are required.
 
 ```md
 ---
-title: A public notebook
-date: 2026-08-21
+title: Conscious-Cognitive Learning
+date: 2026-09-04
 summary: One or two sentences for the listing and for social previews.
 draft: false
 ---
@@ -33,7 +33,7 @@ Article body in Markdown.
 
 Images belong in this repository at `public/media/` and are referenced as `/media/filename.jpg`. The published site does not load third-party image hosts.
 
-The worked example in the tree is [`content/articles/a-public-notebook.md`](content/articles/a-public-notebook.md). A short checklist also lives in [`content/articles/README.md`](content/articles/README.md).
+The worked example in the tree is [`content/articles/conscious-cognitive-learning.md`](content/articles/conscious-cognitive-learning.md). A short checklist also lives in [`content/articles/README.md`](content/articles/README.md).
 
 Pushing straight to `main` also deploys, but a pull request is the intended path: you read the preview before it is live.
 

@@ -12,7 +12,7 @@ When asked to “publish an article”, “add a note”, or similar, follow **P
 
 Intended deployment path: **Markdown file → pull request against `main` → Netlify deploy preview → merge → production at `/notes/<slug>`**.
 
-1. Add `content/articles/<kebab-case-slug>.md`. The slug is the public URL. Copy the shape of `content/articles/a-public-notebook.md`. Folder conventions are in `content/articles/README.md`.
+1. Add `content/articles/<kebab-case-slug>.md`. The slug is the public URL. Copy the shape of `content/articles/conscious-cognitive-learning.md`. Folder conventions are in `content/articles/README.md`.
 2. Front matter must satisfy `src/content.config.ts`:
 
    | Field | Required | Notes |

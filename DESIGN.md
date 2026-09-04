@@ -83,7 +83,7 @@ draft: boolean   # optional, default false
 
 Intended publishing path:
 
-1. Add `content/articles/my-slug.md` (see that folder’s `README.md` and the example `a-public-notebook.md`).
+1. Add `content/articles/my-slug.md` (see that folder’s `README.md` and the example `conscious-cognitive-learning.md`).
 2. Open a pull request against `main`. GitHub Actions and a Netlify deploy preview run on the PR.
 3. Merge. Netlify runs `npm test && npm run check && npm run build` on `main` and replaces the listing plus `/notes/my-slug`.
 
@@ -106,7 +106,7 @@ Article pages are prerendered on purpose. Runtime-only Markdown would avoid a Ne
 
 No secrets are required. The GitHub catalogue uses the public API. Do not put tokens in the frontend.
 
-Pretty URLs match `trailingSlash: 'never'` (`/notes/a-public-notebook`, not a trailing slash). Unknown paths render `src/pages/404.astro`. `/blog/*` redirects to `/notes/*`.
+Pretty URLs match `trailingSlash: 'never'` (`/notes/conscious-cognitive-learning`, not a trailing slash). Unknown paths render `src/pages/404.astro`. `/blog/*` redirects to `/notes/*`.
 
 ## Out of scope
 
