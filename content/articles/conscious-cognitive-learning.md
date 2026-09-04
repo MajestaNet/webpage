@@ -1,7 +1,7 @@
 ---
 title: Conscious-Cognitive Learning
 date: 2026-09-04
-summary: A foundation for the Majesta Conscious-Cognitive Model. Existing architectures set consciousness aside; this note defines conscious-cognitive learning so those processes can be modelled, implemented, and measured.
+summary: A theoretical foundation for a cognitive architecture to model and implement learning processes.
 ---
 
 ## Motivation
