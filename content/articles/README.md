@@ -2,9 +2,9 @@
 
 Each published note is one Markdown file in this folder. The filename is the public slug:
 
-`a-public-notebook.md` → `https://majesta.net/notes/a-public-notebook`
+`conscious-cognitive-learning.md` → `https://majesta.net/notes/conscious-cognitive-learning`
 
-This `README.md` is not an article. Copy [`a-public-notebook.md`](a-public-notebook.md) or start from:
+This `README.md` is not an article. Copy [`conscious-cognitive-learning.md`](conscious-cognitive-learning.md) or start from:
 
 ```md
 ---
