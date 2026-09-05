@@ -663,38 +663,23 @@ a {
 }
 
 @media (max-width: 719px) {
-  /* Let the document scroll on small screens. Nested 100svh + mandatory snap
-     keeps the footer on screen but not a stable stop once Notes has real cards. */
-  body:has(.stage) {
-    height: auto;
-    overflow: visible;
-  }
-
-  .stage {
-    height: auto;
-    overflow: visible;
-    scroll-snap-type: none;
-  }
-
   .stage .hero,
   .stage .panel {
     height: auto;
     max-height: none;
-    scroll-snap-align: none;
   }
 
   .stage .panel-inner {
-    min-height: auto;
     overflow: visible;
-    justify-content: flex-start;
   }
 
+  /* Keep section snap; add a stop at the footer so it can rest in view. */
   .stage .panel .site-footer {
-    margin-top: auto;
+    scroll-snap-align: end;
   }
 
   .site-footer {
-    padding-bottom: calc(3.2rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(2.8rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
