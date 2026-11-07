@@ -2,7 +2,7 @@
 title: Die Bauwut
 date: 2026-11-07
 summary: On artificial intelligence and the rage to build
-draft: true
+draft: false
 ---
 
 An idea occurs. A few sentences later, something begins to exist: a website, a programme, an image, a plan. We adjust it, extend it, ask for another version. Each result suggests another possibility. The distance between imagining and making seems to contract.
