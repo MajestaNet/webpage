@@ -2,14 +2,14 @@
 title: Die Bauwut
 date: 2026-11-07
 summary: On artificial intelligence and the rage to build
-draft: true
+draft: false
 ---
 
 An idea occurs. A few sentences later, something begins to exist: a website, a programme, an image, a plan. We adjust it, extend it, ask for another version. Each result suggests another possibility. The distance between imagining and making seems to contract.
 
 There is pleasure in this. There is also a peculiar restlessness. Finishing one thing leaves us reaching for the next. Whatever resists completion becomes irritating. We begin to experience the time between intention and result as an unnecessary obstruction.
 
-German has a word for an excessive urge to build: *Bauwut*. It joins *Bau*, building or construction, with *Wut*, anger or rage. Its ordinary meaning already captures a frenzy of construction. I want to hear the anger within it more distinctly. [Duden: *Bauwut*](https://www.duden.de/rechtschreibung/Bauwut)
+German has a word for an excessive urge to build: *Bauwut*. It joins *Bau*, building or construction, with *Wut*, anger or rage. Its ordinary meaning already captures a frenzy of construction. [Duden: *Bauwut*](https://www.duden.de/rechtschreibung/Bauwut)
 
 > What happens when making becomes so easy that the world begins to feel intolerably slow?
 
